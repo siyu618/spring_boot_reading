@@ -12,7 +12,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 /**
  * Created by tianyuzhi on 17/5/12.
- */
+*/
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -28,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/").access("hasRole('READER')")
+                .antMatchers("/readinglist").access("hasRole('READER')")
                 .antMatchers("/**").permitAll()
         .and()
         .formLogin()
